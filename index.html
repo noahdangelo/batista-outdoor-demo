@@ -574,8 +574,8 @@
 
     /* Animations */
     .reveal {
-      opacity: 0;
-      transform: translateY(30px);
+      opacity: 1;
+      transform: translateY(0);
       transition: opacity 0.8s ease, transform 0.8s ease;
     }
 
@@ -583,9 +583,6 @@
       opacity: 1;
       transform: translateY(0);
     }
-
-    /* Fallback: ensure content visible if JS doesn't fire */
-    .no-js .reveal { opacity: 1; transform: none; }
 
     /* Mobile */
     @media (max-width: 768px) {
@@ -803,7 +800,7 @@
     hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
     navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
 
-    // Scroll reveal
+    // Scroll reveal — subtle entrance animation
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -811,19 +808,9 @@
           revealObserver.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.05, rootMargin: '0px 0px 50px 0px' });
+    }, { threshold: 0.1 });
 
-    document.querySelectorAll('.reveal').forEach(el => {
-      // Make first 2 sections visible immediately (above fold)
-      revealObserver.observe(el);
-    });
-    
-    // Fallback: make everything visible after 3 seconds regardless
-    setTimeout(() => {
-      document.querySelectorAll('.reveal:not(.visible)').forEach(el => {
-        el.classList.add('visible');
-      });
-    }, 3000);
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
     // Before/After Slider
     const container = document.getElementById('comparison');
