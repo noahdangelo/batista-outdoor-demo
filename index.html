@@ -27,9 +27,7 @@
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
-
     body {
       font-family: var(--font-body);
       background: var(--black);
@@ -40,208 +38,106 @@
 
     /* Navigation */
     nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
       padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      display: flex; justify-content: space-between; align-items: center;
       transition: all 0.3s ease;
     }
-
     nav.scrolled {
       background: rgba(10, 10, 10, 0.92);
       backdrop-filter: blur(12px);
       padding: 0.75rem 2rem;
     }
-
     .nav-logo {
       font-family: var(--font-heading);
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--white);
-      text-decoration: none;
+      font-size: 1.5rem; font-weight: 700;
+      color: var(--white); text-decoration: none;
     }
-
     .nav-logo span { color: var(--gold); }
-
     .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 2rem;
+      display: flex; align-items: center; gap: 2rem;
       list-style: none;
     }
-
     .nav-links a {
-      color: var(--gray-light);
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 400;
+      color: var(--gray-light); text-decoration: none;
+      font-size: 0.9rem; font-weight: 400;
       transition: color 0.3s;
     }
-
     .nav-links a:hover { color: var(--gold); }
-
     .nav-cta {
-      background: var(--gold);
-      color: var(--black) !important;
-      padding: 0.6rem 1.5rem;
-      border-radius: 4px;
-      font-weight: 600 !important;
-      font-size: 0.85rem !important;
-      transition: all 0.3s !important;
+      background: var(--gold); color: var(--black) !important;
+      padding: 0.6rem 1.5rem; border-radius: 4px;
+      font-weight: 600 !important; font-size: 0.85rem !important;
+      transition: all 0.3s !important; white-space: nowrap;
     }
-
     .nav-cta:hover {
-      background: var(--gold-light);
-      transform: translateY(-1px);
+      background: var(--gold-light); transform: translateY(-1px);
     }
-
     .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      background: none;
-      border: none;
-      padding: 5px;
+      display: none; flex-direction: column; gap: 5px;
+      cursor: pointer; background: none; border: none; padding: 5px;
+      z-index: 1002;
     }
-
-    .hamburger span {
-      width: 24px;
-      height: 2px;
-      background: var(--off-white);
-      transition: all 0.3s;
-    }
+    .hamburger span { width: 24px; height: 2px; background: var(--off-white); transition: all 0.3s; }
 
     /* Hero */
     .hero {
       min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
       background: linear-gradient(135deg, var(--black) 0%, var(--green-deep) 100%);
     }
-
     .hero-bg {
-      position: absolute;
-      inset: 0;
+      position: absolute; inset: 0;
       background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=80') center/cover no-repeat;
-      opacity: 0.3;
-      z-index: 0;
+      opacity: 0.3; z-index: 0;
     }
-
     .hero-overlay {
-      position: absolute;
-      inset: 0;
+      position: absolute; inset: 0;
       background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.7) 100%);
       z-index: 1;
     }
-
     .hero-content {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      max-width: 800px;
-      padding: 2rem;
+      position: relative; z-index: 2; text-align: center;
+      max-width: 800px; padding: 2rem;
     }
-
     .hero-tagline {
       font-family: var(--font-heading);
-      font-size: clamp(2.5rem, 6vw, 5rem);
-      font-weight: 700;
-      line-height: 1.1;
-      margin-bottom: 1.5rem;
+      font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 700;
+      line-height: 1.1; margin-bottom: 1.5rem;
     }
-
     .hero-tagline em { color: var(--gold); font-style: normal; }
-
     .hero-sub {
-      font-size: 1.1rem;
-      color: var(--gray-light);
-      margin-bottom: 2.5rem;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
+      font-size: 1.1rem; color: var(--gray-light);
+      margin-bottom: 2.5rem; max-width: 600px; margin-left: auto; margin-right: auto;
     }
-
-    .hero-ctas {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
+    .hero-ctas { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 
     .btn {
-      padding: 0.9rem 2.2rem;
-      border-radius: 4px;
-      font-family: var(--font-body);
-      font-size: 0.95rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.3s;
-      cursor: pointer;
-      border: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
+      padding: 0.9rem 2.2rem; border-radius: 4px;
+      font-family: var(--font-body); font-size: 0.95rem;
+      font-weight: 600; text-decoration: none;
+      transition: all 0.3s; cursor: pointer; border: none;
+      display: inline-flex; align-items: center; gap: 0.5rem;
     }
-
-    .btn-gold {
-      background: var(--gold);
-      color: var(--black);
-    }
-
-    .btn-gold:hover {
-      background: var(--gold-light);
-      transform: translateY(-2px);
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--off-white);
-      border: 1px solid var(--gray);
-    }
-
-    .btn-outline:hover {
-      border-color: var(--gold);
-      color: var(--gold);
-      transform: translateY(-2px);
-    }
+    .btn-gold { background: var(--gold); color: var(--black); }
+    .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); }
+    .btn-outline { background: transparent; color: var(--off-white); border: 1px solid var(--gray); }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
 
     /* Sections */
-    section {
-      padding: 6rem 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
+    section { padding: 6rem 2rem; max-width: 1200px; margin: 0 auto; }
     .section-tag {
-      color: var(--gold);
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      margin-bottom: 1rem;
-      font-weight: 500;
+      color: var(--gold); font-size: 0.8rem;
+      text-transform: uppercase; letter-spacing: 3px;
+      margin-bottom: 1rem; font-weight: 500;
     }
-
     .section-title {
       font-family: var(--font-heading);
       font-size: clamp(2rem, 4vw, 3rem);
-      margin-bottom: 1rem;
-      line-height: 1.2;
+      margin-bottom: 1rem; line-height: 1.2;
     }
-
-    .section-desc {
-      color: var(--gray-light);
-      max-width: 600px;
-      margin-bottom: 3rem;
-    }
+    .section-desc { color: var(--gray-light); max-width: 600px; margin-bottom: 3rem; }
 
     /* Services */
     .services-grid {
@@ -249,199 +145,97 @@
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 1.5rem;
     }
-
     .service-card {
       background: var(--green-dark);
       border: 1px solid rgba(200, 169, 110, 0.1);
-      border-radius: 8px;
-      padding: 2rem;
-      transition: all 0.4s;
-      cursor: pointer;
+      border-radius: 8px; padding: 2rem;
+      transition: all 0.4s; cursor: pointer;
     }
-
     .service-card:hover {
       border-color: var(--gold);
       transform: translateY(-4px);
       box-shadow: 0 12px 40px rgba(212, 168, 67, 0.08);
     }
-
-    .service-icon {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      display: block;
-    }
-
-    .service-card h3 {
-      font-family: var(--font-heading);
-      font-size: 1.3rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .service-card p {
-      color: var(--gray-light);
-      font-size: 0.9rem;
-      line-height: 1.6;
-    }
+    .service-icon { font-size: 2.5rem; margin-bottom: 1rem; display: block; }
+    .service-card h3 { font-family: var(--font-heading); font-size: 1.3rem; margin-bottom: 0.5rem; }
+    .service-card p { color: var(--gray-light); font-size: 0.9rem; line-height: 1.6; }
 
     /* Before/After Slider */
     .slider-section {
       background: var(--green-dark);
-      padding: 6rem 2rem;
-      width: 100%;
+      padding: 6rem 2rem; width: 100%;
     }
+    .slider-section .section-content { max-width: 900px; margin: 0 auto; }
 
-    .slider-section .section-content {
-      max-width: 900px;
-      margin: 0 auto;
+    .comparison {
+      position: relative; width: 100%; max-width: 900px;
+      aspect-ratio: 16 / 10; overflow: hidden;
+      border-radius: 12px; margin: 0 auto;
+      cursor: ew-resize; user-select: none;
+      -webkit-user-select: none; touch-action: none;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
     }
-
-    .comparison-container {
-      position: relative;
-      width: 100%;
-      max-width: 900px;
-      margin: 0 auto;
-      border-radius: 8px;
-      overflow: hidden;
-      user-select: none;
-      aspect-ratio: 16/9;
-      cursor: ew-resize;
+    .comparison img {
+      display: block; position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%; object-fit: cover;
+      pointer-events: none;
     }
-
-    .comparison-img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
+    .comparison .before-img {
+      position: relative; width: 100%; height: 100%; z-index: 1;
+    }
+    .comparison .after-wrapper {
+      position: absolute; top: 0; left: 0; height: 100%;
+      overflow: hidden; z-index: 2; width: 50%;
+    }
+    .comparison .after-wrapper img {
+      width: 100vw; max-width: none; height: 100%;
       object-fit: cover;
-      pointer-events: none;
     }
-
-    .comparison-after { clip-path: inset(0 50% 0 0); }
-
-    .comparison-label {
-      position: absolute;
-      top: 1.5rem;
-      padding: 0.4rem 1rem;
-      font-size: 0.75rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      border-radius: 3px;
-      pointer-events: none;
+    .comparison .divider {
+      position: absolute; top: 0; left: 50%; width: 2px;
+      height: 100%; background: #ffffff; z-index: 3;
+      pointer-events: none; transform: translateX(-50%);
+      box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
     }
-
-    .label-before {
-      left: 1.5rem;
-      background: var(--navy);
-      color: var(--white);
+    .comparison .handle {
+      position: absolute; top: 50%; left: 50%; z-index: 4;
+      width: 48px; height: 48px; border-radius: 50%;
+      background: var(--gold); border: 3px solid #ffffff;
+      box-shadow: 0 0 0 3px rgba(0,0,0,0.15), 0 4px 16px rgba(0,0,0,0.3);
+      transform: translate(-50%, -50%); cursor: ew-resize;
+      pointer-events: auto;
+      display: flex; align-items: center; justify-content: center; gap: 4px;
     }
-
-    .label-after {
-      right: 1.5rem;
-      background: var(--gold);
-      color: var(--black);
+    .handle__arrow { display: inline-block; font-size: 14px; line-height: 1; color: var(--black); font-weight: bold; }
+    .handle:hover { transform: translate(-50%, -50%) scale(1.1); }
+    .comparison .label {
+      position: absolute; z-index: 5; padding: 6px 14px;
+      border-radius: 6px; font-size: 13px; font-weight: 700;
+      letter-spacing: 1.2px; text-transform: uppercase;
+      pointer-events: none; user-select: none;
     }
+    .label--before { bottom: 16px; left: 16px; background: rgba(0,0,0,0.65); color: #fff; }
+    .label--after { bottom: 16px; right: 16px; background: rgba(212,168,67,0.85); color: var(--black); }
 
-    .slider-handle {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 50%;
-      width: 3px;
-      background: var(--white);
-      transform: translateX(-50%);
-      z-index: 10;
-      pointer-events: none;
-    }
-
-    .slider-button {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 44px;
-      height: 44px;
-      background: var(--gold);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 11;
-      pointer-events: none;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.3);
-    }
-
-    .slider-button svg {
-      width: 20px;
-      height: 20px;
-      fill: var(--black);
-    }
-
-    /* Category Buttons */
     .category-buttons {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-      max-width: 400px;
-      margin: 2rem auto 0;
+      display: flex; flex-direction: column; gap: 0.75rem;
+      max-width: 400px; margin: 2rem auto 0;
     }
-
     .cat-btn {
-      padding: 0.8rem 1.5rem;
-      border-radius: 6px;
-      border: 1px solid var(--gray);
-      background: transparent;
-      color: var(--gray-light);
-      font-family: var(--font-body);
-      font-size: 0.9rem;
-      cursor: pointer;
-      transition: all 0.3s;
+      padding: 0.8rem 1.5rem; border-radius: 6px;
+      border: 1px solid var(--gray); background: transparent;
+      color: var(--gray-light); font-family: var(--font-body);
+      font-size: 0.9rem; cursor: pointer; transition: all 0.3s;
     }
-
-    .cat-btn.active {
-      background: var(--gold);
-      border-color: var(--gold);
-      color: var(--black);
-      font-weight: 600;
-    }
-
-    .cat-btn:hover:not(.active) {
-      border-color: var(--gold);
-      color: var(--off-white);
-    }
+    .cat-btn.active { background: var(--gold); border-color: var(--gold); color: var(--black); font-weight: 600; }
+    .cat-btn:hover:not(.active) { border-color: var(--gold); color: var(--off-white); }
 
     /* Stats */
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-      margin: 3rem 0;
-    }
-
-    .stat {
-      text-align: center;
-    }
-
-    .stat-number {
-      font-family: var(--font-heading);
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: var(--gold);
-      margin-bottom: 0.3rem;
-    }
-
-    .stat-label {
-      font-size: 0.9rem;
-      color: var(--gray-light);
-    }
-
-    /* About */
-    .about-text {
-      font-size: 1.05rem;
-      line-height: 1.7;
-      color: var(--gray-light);
-      max-width: 700px;
-    }
+    .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin: 3rem 0; }
+    .stat { text-align: center; }
+    .stat-number { font-family: var(--font-heading); font-size: 2.5rem; font-weight: 700; color: var(--gold); margin-bottom: 0.3rem; }
+    .stat-label { font-size: 0.9rem; color: var(--gray-light); }
+    .about-text { font-size: 1.05rem; line-height: 1.7; color: var(--gray-light); max-width: 700px; }
 
     /* Gallery */
     .gallery-grid {
@@ -449,191 +243,77 @@
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1rem;
     }
-
     .gallery-item {
-      position: relative;
-      overflow: hidden;
-      border-radius: 6px;
-      aspect-ratio: 4/3;
-      cursor: pointer;
+      position: relative; overflow: hidden; border-radius: 6px;
+      aspect-ratio: 4/3; cursor: pointer; background: var(--green-dark);
     }
-
     .gallery-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      width: 100%; height: 100%; object-fit: cover;
       transition: transform 0.5s ease;
     }
-
     .gallery-item:hover img { transform: scale(1.05); }
-
-    .gallery-item .gallery-label {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
+    .gallery-item .gl {
+      position: absolute; bottom: 0; left: 0; right: 0;
       padding: 1rem;
       background: linear-gradient(transparent, rgba(0,0,0,0.8));
-      color: var(--white);
-      font-size: 0.85rem;
-      font-weight: 500;
+      color: var(--white); font-size: 0.85rem; font-weight: 500;
     }
 
     /* Contact */
-    .contact-section {
-      background: var(--green-dark);
-      width: 100%;
-      padding: 6rem 2rem;
-    }
-
-    .contact-section .section-content {
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-
-    .contact-form input,
-    .contact-form textarea {
-      width: 100%;
-      padding: 0.9rem 1rem;
+    .contact-section { background: var(--green-dark); width: 100%; padding: 6rem 2rem; }
+    .contact-section .section-content { max-width: 600px; margin: 0 auto; }
+    .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .contact-form input, .contact-form textarea {
+      width: 100%; padding: 0.9rem 1rem;
       background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 4px;
-      color: var(--off-white);
-      font-family: var(--font-body);
-      font-size: 0.9rem;
-      transition: border-color 0.3s;
-      outline: none;
+      border: 1px solid rgba(255,255,255,0.1); border-radius: 4px;
+      color: var(--off-white); font-family: var(--font-body);
+      font-size: 0.9rem; transition: border-color 0.3s; outline: none;
     }
-
-    .contact-form input:focus,
-    .contact-form textarea:focus {
-      border-color: var(--gold);
-    }
-
-    .contact-form input::placeholder,
-    .contact-form textarea::placeholder {
-      color: var(--gray);
-    }
-
-    .contact-form textarea {
-      min-height: 120px;
-      resize: vertical;
-    }
-
-    .contact-form .btn-gold {
-      width: 100%;
-      justify-content: center;
-      padding: 1rem;
-    }
+    .contact-form input:focus, .contact-form textarea:focus { border-color: var(--gold); }
+    .contact-form input::placeholder, .contact-form textarea::placeholder { color: var(--gray); }
+    .contact-form textarea { min-height: 120px; resize: vertical; }
+    .contact-form .btn-gold { width: 100%; justify-content: center; padding: 1rem; }
 
     /* Footer */
     footer {
-      background: var(--black);
-      padding: 3rem 2rem;
-      text-align: center;
+      background: var(--black); padding: 3rem 2rem; text-align: center;
       border-top: 1px solid rgba(255,255,255,0.05);
     }
-
-    .footer-logo {
-      font-family: var(--font-heading);
-      font-size: 1.3rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
-
+    .footer-logo { font-family: var(--font-heading); font-size: 1.3rem; font-weight: 700; margin-bottom: 0.5rem; }
     .footer-logo span { color: var(--gold); }
-
-    .footer-phone {
-      color: var(--gray-light);
-      font-size: 0.9rem;
-      margin-bottom: 0.3rem;
-    }
-
-    .footer-phone a {
-      color: var(--gold);
-      text-decoration: none;
-    }
-
-    .footer-copy {
-      color: var(--gray);
-      font-size: 0.8rem;
-      margin-top: 1.5rem;
-    }
-
-    /* Animations */
-    .reveal {
-      opacity: 1;
-      transform: translateY(0);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .footer-phone { color: var(--gray-light); font-size: 0.9rem; margin-bottom: 0.3rem; }
+    .footer-phone a { color: var(--gold); text-decoration: none; }
+    .footer-copy { color: var(--gray); font-size: 0.8rem; margin-top: 1.5rem; }
 
     /* Mobile */
     @media (max-width: 768px) {
       .hamburger { display: flex; }
-
       .nav-links {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 75%;
-        height: 100vh;
+        position: fixed; top: 0; right: -100%;
+        width: 75%; height: 100vh;
         background: var(--charcoal);
-        flex-direction: column;
-        justify-content: center;
-        padding: 2rem;
+        flex-direction: column; justify-content: center;
+        padding: 2rem; gap: 1.5rem; z-index: 1001;
         transition: right 0.3s ease;
-        gap: 1.5rem;
-        z-index: 1001;
       }
-
       .nav-links.open { right: 0; }
-
       .nav-overlay {
-        position: fixed;
-        inset: 0;
-        background: rgba(0,0,0,0.5);
-        z-index: 1000;
-        opacity: 0;
-        pointer-events: none;
+        position: fixed; inset: 0;
+        background: rgba(0,0,0,0.5); z-index: 1000;
+        opacity: 0; pointer-events: none;
         transition: opacity 0.3s ease;
       }
-
-      .nav-overlay.show {
-        opacity: 1;
-        pointer-events: auto;
-      }
-
-      .nav-cta {
-        white-space: nowrap;
-        text-align: center;
-      }
-
+      .nav-overlay.show { opacity: 1; pointer-events: auto; }
       .form-row { grid-template-columns: 1fr; }
-
       .stats-grid { grid-template-columns: 1fr; gap: 1.5rem; }
-
       section { padding: 4rem 1.5rem; }
-
       .hero-tagline { font-size: 2rem; }
-
       .gallery-grid { grid-template-columns: 1fr; }
+      .comparison { aspect-ratio: 4/3; }
+      .comparison .handle { width: 40px; height: 40px; }
+      .comparison .label { font-size: 11px; padding: 4px 10px; }
     }
   </style>
 </head>
@@ -659,46 +339,33 @@
     <div class="hero-bg"></div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <h1 class="hero-tagline reveal">Transform Your <em>Outdoor Space</em></h1>
-      <p class="hero-sub reveal">Premium artificial grass, pavers, and outdoor living installations. San Diego's trusted choice for luxury landscapes.</p>
-      <div class="hero-ctas reveal">
+      <h1 class="hero-tagline">Transform Your <em>Outdoor Space</em></h1>
+      <p class="hero-sub">Premium artificial grass, pavers, and outdoor living installations. San Diego's trusted choice for luxury landscapes.</p>
+      <div class="hero-ctas">
         <a href="#contact" class="btn btn-gold">Get a Free Quote</a>
         <a href="tel:+17869896196" class="btn btn-outline">(786) 989-6196</a>
       </div>
     </div>
   </section>
 
-  <!-- About / Stats -->
+  <!-- About -->
   <section id="about">
-    <div class="reveal">
-      <p class="section-tag">About Us</p>
-      <h2 class="section-title">Crafting San Diego's Finest Outdoor Living</h2>
-      <p class="about-text">Batista & E. LLC transforms ordinary yards into extraordinary outdoor living spaces. From lush artificial turf to elegant paver patios, we bring premium craftsmanship to every project. No subcontractors, no shortcuts — just quality work that lasts.</p>
-    </div>
-    <div class="stats-grid reveal">
-      <div class="stat">
-        <div class="stat-number">10+</div>
-        <div class="stat-label">Years Experience</div>
-      </div>
-      <div class="stat">
-        <div class="stat-number">500+</div>
-        <div class="stat-label">Projects Completed</div>
-      </div>
-      <div class="stat">
-        <div class="stat-number">100%</div>
-        <div class="stat-label">Satisfaction Guarantee</div>
-      </div>
+    <p class="section-tag">About Us</p>
+    <h2 class="section-title">Crafting San Diego's Finest Outdoor Living</h2>
+    <p class="about-text">Batista & E. LLC transforms ordinary yards into extraordinary outdoor living spaces. From lush artificial turf to elegant paver patios, we bring premium craftsmanship to every project. No subcontractors, no shortcuts — just quality work that lasts.</p>
+    <div class="stats-grid">
+      <div class="stat"><div class="stat-number">10+</div><div class="stat-label">Years Experience</div></div>
+      <div class="stat"><div class="stat-number">500+</div><div class="stat-label">Projects Completed</div></div>
+      <div class="stat"><div class="stat-number">100%</div><div class="stat-label">Satisfaction Guarantee</div></div>
     </div>
   </section>
 
   <!-- Services -->
   <section id="services">
-    <div class="reveal">
-      <p class="section-tag">What We Do</p>
-      <h2 class="section-title">Premium Outdoor Services</h2>
-      <p class="section-desc">Every project is built to last with premium materials and expert craftsmanship.</p>
-    </div>
-    <div class="services-grid reveal">
+    <p class="section-tag">What We Do</p>
+    <h2 class="section-title">Premium Outdoor Services</h2>
+    <p class="section-desc">Every project is built to last with premium materials and expert craftsmanship.</p>
+    <div class="services-grid">
       <div class="service-card">
         <span class="service-icon">🌿</span>
         <h3>Artificial Grass</h3>
@@ -724,69 +391,74 @@
 
   <!-- Before/After Slider -->
   <div class="slider-section">
-    <div class="section-content reveal">
+    <div class="section-content">
       <p class="section-tag" style="text-align:center;">Our Work</p>
       <h2 class="section-title" style="text-align:center;">See the Transformation</h2>
-      <p class="section-desc" style="text-align:center; margin-left:auto; margin-right:auto;">From ordinary yard to extraordinary outdoor living. Drag to compare.</p>
+      <p class="section-desc" style="text-align:center;margin:0 auto 2rem;">From ordinary yard to extraordinary outdoor living. Drag to compare.</p>
     </div>
-    <div class="comparison-container reveal" id="comparison">
-      <img class="comparison-img" id="beforeImg" src="https://images.unsplash.com/photo-1576013551627-0cc20b84c2b2?w=1200&q=80" alt="Before" loading="lazy">
-      <img class="comparison-img comparison-after" id="afterImg" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80" alt="After" loading="lazy">
-      <div class="comparison-label label-before">Before</div>
-      <div class="comparison-label label-after">After</div>
-      <div class="slider-handle" id="sliderHandle"></div>
-      <div class="slider-button" id="sliderButton">
-        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+    <div class="comparison" id="comparison" role="img" aria-label="Image comparison slider">
+      <!-- Before -->
+      <div class="before-img">
+        <img src="https://images.unsplash.com/photo-1576013551627-0cc20b84c2b2?w=1000&q=80" alt="Before" draggable="false">
       </div>
+      <!-- After -->
+      <div class="after-wrapper" id="afterWrapper">
+        <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=1000&q=80" alt="After" draggable="false">
+      </div>
+      <div class="divider" id="divider"></div>
+      <div class="handle" id="handle" role="slider" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" tabindex="0">
+        <span class="handle__arrow">&#9664;</span>
+        <span class="handle__arrow">&#9654;</span>
+      </div>
+      <div class="label label--before">BEFORE</div>
+      <div class="label label--after">AFTER</div>
     </div>
-    <div class="category-buttons reveal">
-      <button class="cat-btn active" data-category="backyard">Backyard Remodel</button>
-      <button class="cat-btn" data-category="paver">Paver Driveway</button>
-      <button class="cat-btn" data-category="fence">Modern Fence</button>
+    <div class="category-buttons">
+      <button class="cat-btn active">Backyard Remodel</button>
+      <button class="cat-btn">Paver Driveway</button>
+      <button class="cat-btn">Modern Fence</button>
     </div>
   </div>
 
   <!-- Gallery -->
   <section id="gallery">
-    <div class="reveal">
-      <p class="section-tag">Portfolio</p>
-      <h2 class="section-title">Recent Projects</h2>
-      <p class="section-desc">A selection of our finest work across San Diego.</p>
-    </div>
-    <div class="gallery-grid reveal">
+    <p class="section-tag">Portfolio</p>
+    <h2 class="section-title">Recent Projects</h2>
+    <p class="section-desc">A selection of our finest work across San Diego.</p>
+    <div class="gallery-grid">
       <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=600&q=80" alt="Luxury backyard with pool" loading="lazy">
-        <div class="gallery-label">Backyard Paradise</div>
+        <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=600&q=80" alt="Backyard" loading="lazy">
+        <div class="gl">Backyard Paradise</div>
       </div>
       <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80" alt="Modern pool and patio" loading="lazy">
-        <div class="gallery-label">Pool & Patio</div>
+        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80" alt="Pool" loading="lazy">
+        <div class="gl">Pool & Patio</div>
       </div>
       <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1600573472591-ee6c8e695481?w=600&q=80" alt="Paver patio installation" loading="lazy">
-        <div class="gallery-label">Paver Patio</div>
+        <img src="https://images.unsplash.com/photo-1600573472591-ee6c8e695481?w=600&q=80" alt="Patio" loading="lazy">
+        <div class="gl">Paver Patio</div>
       </div>
       <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=600&q=80" alt="Modern landscape design" loading="lazy">
-        <div class="gallery-label">Modern Landscape</div>
+        <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=600&q=80" alt="Landscape" loading="lazy">
+        <div class="gl">Modern Landscape</div>
       </div>
       <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1600573472556-6c0c4c1e3bfb?w=600&q=80" alt="Artificial turf installation" loading="lazy">
-        <div class="gallery-label">Artificial Turf</div>
+        <img src="https://images.unsplash.com/photo-1600573472556-6c0c4c1e3bfb?w=600&q=80" alt="Turf" loading="lazy">
+        <div class="gl">Artificial Turf</div>
       </div>
       <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=600&q=80" alt="Outdoor living space" loading="lazy">
-        <div class="gallery-label">Outdoor Living</div>
+        <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=600&q=80" alt="Outdoor" loading="lazy">
+        <div class="gl">Outdoor Living</div>
       </div>
     </div>
   </section>
 
   <!-- Contact -->
   <div class="contact-section" id="contact">
-    <div class="section-content reveal">
+    <div class="section-content">
       <p class="section-tag" style="text-align:center;">Get Started</p>
       <h2 class="section-title" style="text-align:center;">Request a Free Quote</h2>
-      <p class="section-desc" style="text-align:center; margin-left:auto; margin-right:auto;">Tell us about your project and we'll get back to you within 24 hours.</p>
+      <p class="section-desc" style="text-align:center;margin:0 auto 2rem;">Tell us about your project and we'll get back to you within 24 hours.</p>
       <form class="contact-form" id="contactForm">
         <div class="form-row">
           <input type="text" placeholder="Your Name" required>
@@ -806,12 +478,12 @@
   <footer>
     <div class="footer-logo">BATISTA <span>& E.</span></div>
     <div class="footer-phone">Call or Text: <a href="tel:+17869896196">(786) 989-6196</a></div>
-    <p style="color:var(--gray-light); font-size:0.85rem; margin-top:0.3rem;">San Diego's Premier Outdoor Living Contractor</p>
+    <p style="color:var(--gray-light);font-size:0.85rem;margin-top:0.3rem;">San Diego's Premier Outdoor Living Contractor</p>
     <div class="footer-copy">&copy; 2026 Batista & E. LLC. All rights reserved.</div>
   </footer>
 
   <script>
-    // Nav scroll effect
+    // Nav scroll
     window.addEventListener('scroll', () => {
       document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
     });
@@ -820,51 +492,73 @@
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
     const navOverlay = document.getElementById('navOverlay');
-
     function toggleMenu(open) {
       navLinks.classList.toggle('open', open);
       navOverlay.classList.toggle('show', open);
       document.body.style.overflow = open ? 'hidden' : '';
     }
-
     hamburger.addEventListener('click', () => toggleMenu(!navLinks.classList.contains('open')));
     navOverlay.addEventListener('click', () => toggleMenu(false));
     navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
 
-    // Scroll reveal — subtle entrance animation
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          revealObserver.unobserve(entry.target);
-        }
+    // Before/After Slider — Pointer Events API
+    (function() {
+      const container = document.getElementById('comparison');
+      const wrapper = document.getElementById('afterWrapper');
+      const divider = document.getElementById('divider');
+      const handle = document.getElementById('handle');
+      let isDragging = false;
+      let currentPct = 50;
+
+      function setPos(pct) {
+        if (pct < 0) pct = 0;
+        if (pct > 100) pct = 100;
+        currentPct = pct;
+        wrapper.style.width = pct + '%';
+        divider.style.left = pct + '%';
+        handle.style.left = pct + '%';
+        handle.setAttribute('aria-valuenow', Math.round(pct));
+      }
+
+      function getPct(clientX) {
+        const rect = container.getBoundingClientRect();
+        const x = Math.max(0, Math.min(clientX - rect.left, rect.width));
+        return (x / rect.width) * 100;
+      }
+
+      handle.addEventListener('pointerdown', e => {
+        e.preventDefault();
+        isDragging = true;
+        handle.setPointerCapture(e.pointerId);
+        setPos(getPct(e.clientX));
       });
-    }, { threshold: 0.1 });
+      document.addEventListener('pointermove', e => {
+        if (!isDragging) return;
+        e.preventDefault();
+        setPos(getPct(e.clientX));
+      });
+      document.addEventListener('pointerup', e => {
+        if (!isDragging) return;
+        isDragging = false;
+        handle.releasePointerCapture(e.pointerId);
+      });
 
-    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+      container.addEventListener('pointerdown', e => {
+        if (e.target === handle || handle.contains(e.target)) return;
+        setPos(getPct(e.clientX));
+      });
 
-    // Before/After Slider
-    const container = document.getElementById('comparison');
-    const afterImg = document.getElementById('afterImg');
-    const handle = document.getElementById('sliderHandle');
-    let isDragging = false;
+      handle.addEventListener('keydown', e => {
+        let step = e.shiftKey ? 10 : 2;
+        if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') { e.preventDefault(); setPos(currentPct - step); }
+        if (e.key === 'ArrowRight' || e.key === 'ArrowUp') { e.preventDefault(); setPos(currentPct + step); }
+        if (e.key === 'Home') { e.preventDefault(); setPos(0); }
+        if (e.key === 'End') { e.preventDefault(); setPos(100); }
+      });
 
-    function updateSlider(x) {
-      const rect = container.getBoundingClientRect();
-      let pos = (x - rect.left) / rect.width;
-      pos = Math.max(0.1, Math.min(0.9, pos));
-      const pct = pos * 100;
-      afterImg.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
-      handle.style.left = `${pct}%`;
-    }
-
-    container.addEventListener('mousedown', (e) => { isDragging = true; updateSlider(e.clientX); });
-    document.addEventListener('mousemove', (e) => { if (isDragging) updateSlider(e.clientX); });
-    document.addEventListener('mouseup', () => { isDragging = false; });
-
-    container.addEventListener('touchstart', (e) => { isDragging = true; updateSlider(e.touches[0].clientX); });
-    document.addEventListener('touchmove', (e) => { if (isDragging) updateSlider(e.touches[0].clientX); });
-    document.addEventListener('touchend', () => { isDragging = false; });
+      container.addEventListener('contextmenu', e => e.preventDefault());
+      setPos(50);
+    })();
 
     // Category buttons
     document.querySelectorAll('.cat-btn').forEach(btn => {
