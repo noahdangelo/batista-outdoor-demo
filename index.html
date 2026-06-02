@@ -592,7 +592,7 @@
         position: fixed;
         top: 0;
         right: -100%;
-        width: 70%;
+        width: 75%;
         height: 100vh;
         background: var(--charcoal);
         flex-direction: column;
@@ -600,9 +600,30 @@
         padding: 2rem;
         transition: right 0.3s ease;
         gap: 1.5rem;
+        z-index: 1001;
       }
 
       .nav-links.open { right: 0; }
+
+      .nav-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.5);
+        z-index: 1000;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+      }
+
+      .nav-overlay.show {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .nav-cta {
+        white-space: nowrap;
+        text-align: center;
+      }
 
       .form-row { grid-template-columns: 1fr; }
 
@@ -627,6 +648,7 @@
       <li><a href="#gallery">Gallery</a></li>
       <li><a href="tel:+17869896196" class="nav-cta">Free Estimate</a></li>
     </ul>
+    <div class="nav-overlay" id="navOverlay"></div>
     <button class="hamburger" id="hamburger" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
@@ -797,8 +819,17 @@
     // Mobile menu
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
-    hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
-    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+    const navOverlay = document.getElementById('navOverlay');
+
+    function toggleMenu(open) {
+      navLinks.classList.toggle('open', open);
+      navOverlay.classList.toggle('show', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    }
+
+    hamburger.addEventListener('click', () => toggleMenu(!navLinks.classList.contains('open')));
+    navOverlay.addEventListener('click', () => toggleMenu(false));
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
 
     // Scroll reveal — subtle entrance animation
     const revealObserver = new IntersectionObserver((entries) => {
