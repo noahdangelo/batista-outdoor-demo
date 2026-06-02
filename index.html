@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Batista Outdoor — Premium Outdoor Living | South Florida</title>
+  <title>Batista &amp; E. LLC — Premium Outdoor Living | South Florida</title>
   <meta name="description" content="Premium artificial grass, paver driveways, modern fencing and outdoor enclosures in South Florida." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" />
@@ -12,93 +12,197 @@
 <body>
 
 <nav>
-  <div class="logo">Batista <span>Outdoor</span></div>
+  <div class="logo">
+    <span>BATISTA <em>&amp; E.</em></span>
+  </div>
   <div class="nav-links">
-    <a href="/" class="active">Home</a>
-    <a href="/about">About</a>
-    <a href="/services">Services</a>
-    <a href="/gallery">Gallery</a>
-    <a href="/contact">Contact</a>
-    <span class="phone">(786) 989-0316</span>
-    <a href="/contact#estimate" class="cta-nav">Free Estimate</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#gallery">Gallery</a>
+    <span class="phone">(786) 989-6196</span>
+    <a href="#contact" class="cta-nav">Free Estimate</a>
   </div>
 </nav>
 
-<section class="hero">
-  <div class="hero-content">
-    <div class="hero-badge">SOUTH FLORIDA — 5.0 ★ RATED</div>
-    <h1>Transform Your Outdoor Space Into Something <em>Extraordinary</em></h1>
-    <p>Premium artificial grass, paver driveways, modern fencing and outdoor enclosures — designed and installed with uncompromising craftsmanship.</p>
-    <div class="hero-actions" style="display:flex;gap:1rem;flex-wrap:wrap;">
-      <a href="/contact#estimate" class="btn-primary">Get Free Estimate →</a>
-      <a href="/gallery" class="btn-secondary">View Our Work</a>
+<!-- BEFORE & AFTER HERO -->
+<section id="gallery" class="hero-slider-section">
+  <div class="before-after-wrapper">
+    <p class="before-after-section-label">BEFORE &amp; AFTER</p>
+    <h2>Drag to see the <em>transformation.</em></h2>
+
+    <div class="slider-container" id="baSlider">
+      <div class="before-img">
+        <img src="/images/backyard-before.jpg" alt="Before transformation" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;" />
+      </div>
+      <div class="after-img" id="afterImg">
+        <img src="/images/backyard-after.jpg" alt="After transformation" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;" />
+      </div>
+      <div class="slider-line"></div>
+      <div class="slider-handle" id="sliderHandle"></div>
+      <span class="label-before">BEFORE</span>
+      <span class="label-after">AFTER</span>
+    </div>
+
+    <div class="category-tags">
+      <span class="category-tag active">Backyard Remodel</span>
+      <span class="category-tag">Paver Driveway</span>
+      <span class="category-tag">Modern Fence</span>
     </div>
   </div>
-  <div class="hero-visual">
-    <div class="gradient-sphere"></div>
-    <span style="color:#3f3f46;font-size:0.9rem;">[ Hero Image ]</span>
+
+  <div class="gallery-grid">
+    <div class="gallery-item"><img src="/images/pavers.jpg" alt="Paver driveway" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;" /><div style="position:absolute;bottom:0.5rem;left:0.5rem;background:rgba(0,0,0,0.6);padding:0.2rem 0.6rem;border-radius:0.3rem;font-size:0.75rem;">Paver Driveway</div></div>
+    <div class="gallery-item"><img src="/images/fencing.jpg" alt="Modern fencing" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;" /><div style="position:absolute;bottom:0.5rem;left:0.5rem;background:rgba(0,0,0,0.6);padding:0.2rem 0.6rem;border-radius:0.3rem;font-size:0.75rem;">Modern Fence</div></div>
+    <div class="gallery-item"><span class="g-icon">🌿</span>Artificial Grass<span style="color:#52525b;font-size:0.75rem;">[ Add photo ]</span></div>
+    <div class="gallery-item"><span class="g-icon">🏠</span>Outdoor Enclosure<span style="color:#52525b;font-size:0.75rem;">[ Add photo ]</span></div>
   </div>
 </section>
 
-<section>
-  <h2 class="section-title">Our <span>Services</span></h2>
-  <p class="section-sub">From concept to completion — we handle every aspect of your outdoor transformation.</p>
+<!-- ABOUT SECTION -->
+<div class="page" id="about">
+  <div class="about-section">
+    <div class="about-content">
+      <p class="section-label">ABOUT BATISTA &amp; E</p>
+      <h1>Craftsmanship that <em>elevates</em> every square foot.</h1>
+      <p>Batista &amp; E LLC is a South Florida outdoor living company built on a simple idea: do the work right, every time. From the first walkthrough to the final cleanup, we obsess over the details — the joints, the edges, the lighting, the finish — because that's what separates a job from a transformation.</p>
+      <p>We use only premium materials, send only trained crews, and stand behind every install. The result: a backyard you'll actually want to live in.</p>
+      <div class="feature-grid">
+        <div class="feature-item"><span class="icon">🛡️</span><span>Licensed &amp; Insured</span></div>
+        <div class="feature-item"><span class="icon">🏷️</span><span>Free Estimates</span></div>
+        <div class="feature-item"><span class="icon">🏅</span><span>Premium Materials</span></div>
+        <div class="feature-item"><span class="icon">🤝</span><span>Pro Installation</span></div>
+      </div>
+    </div>
+    <div class="about-visual">
+      <div class="image-container">
+        <img src="/images/about-hero.jpg" alt="Luxury outdoor living space at dusk" style="width:100%;height:100%;object-fit:cover;" />
+      </div>
+      <div class="review-overlay">
+        <div class="stars">★★★★★</div>
+        <p>"Magazine-perfect work and an honest team."</p>
+        <div class="attribution">— Verified Google Review</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats-row">
+  <div class="stat-item"><span class="num">500+</span><span class="label">Projects Completed</span></div>
+  <div class="stat-item"><span class="num">5.0 ★</span><span class="label">Google Rating</span></div>
+  <div class="stat-item"><span class="num">10+</span><span class="label">Years Experience</span></div>
+  <div class="stat-item"><span class="num">100%</span><span class="label">Satisfaction</span></div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <p class="section-label">WHAT WE DO</p>
+  <h2 class="section-title">Full-Service Outdoor <span class="gold">Living</span></h2>
+  <p class="section-sub">We design, supply, and install every element of your outdoor space. One team, one warranty, zero headaches.</p>
   <div class="services-grid">
     <div class="service-card">
       <span class="icon">🌿</span>
       <h3>Artificial Grass</h3>
-      <p>Premium synthetic turf for lawns, putting greens, and play areas. Zero maintenance, year-round green.</p>
+      <p>Premium synthetic turf for lawns, putting greens, and play areas. Pet-friendly, drainage-ready, and 15-year warranted materials. Zero maintenance, year-round green.</p>
     </div>
     <div class="service-card">
       <span class="icon">🧱</span>
-      <h3>Paver Driveways</h3>
-      <p>Interlocking pavers for driveways, walkways, and patios. Durable, slip-resistant, endless design patterns.</p>
+      <h3>Paver Driveways &amp; Patios</h3>
+      <p>Interlocking pavers for driveways, walkways, patios, and pool decks. Custom patterns, permeable options, and slip-resistant finishes rated for freeze-thaw.</p>
     </div>
     <div class="service-card">
       <span class="icon">🏗️</span>
       <h3>Modern Fencing</h3>
-      <p>Decorative aluminum, wood, and vinyl fencing. Privacy, security, and curb appeal that lasts.</p>
+      <p>Decorative aluminum, wood, vinyl, and composite fencing. Privacy screens, horizontal wood, custom gates, and automation-ready designs.</p>
     </div>
     <div class="service-card">
       <span class="icon">🏠</span>
       <h3>Outdoor Enclosures</h3>
-      <p>Screen rooms, patios, and covered structures. Extend your living space year-round in comfort.</p>
+      <p>Screen rooms, covered patios, pergolas, and outdoor kitchens. Extend your living space year-round with custom louvered roofs and cabanas.</p>
     </div>
   </div>
 </section>
 
+<!-- WHY CHOOSE US -->
 <section>
-  <h2 class="section-title">Batista <span>Difference</span></h2>
-  <p class="section-sub">Why South Florida homeowners trust us with their outdoor spaces.</p>
-  <div class="stats-grid">
-    <div class="stat-item"><span class="num">15+</span><span class="label">Years Experience</span><span class="desc">Serving South Florida since 2009</span></div>
-    <div class="stat-item"><span class="num">500+</span><span class="label">Projects Completed</span><span class="desc">Residential & commercial</span></div>
-    <div class="stat-item"><span class="num">5.0 ★</span><span class="label">Google Rating</span><span class="desc">Verified customer reviews</span></div>
-    <div class="stat-item"><span class="num">100%</span><span class="label">Licensed & Insured</span><span class="desc">Full liability & workers comp</span></div>
+  <p class="section-label">WHY CHOOSE US</p>
+  <h2 class="section-title">Six reasons clients <span class="gold">stay</span> with us.</h2>
+  <div class="why-grid">
+    <div class="why-card"><span class="num">01</span><div><h4>Free Estimates</h4><p>No-pressure walkthroughs and transparent pricing — always.</p></div></div>
+    <div class="why-card"><span class="num">02</span><div><h4>Professional Team</h4><p>Trained installers who treat your property like their own.</p></div></div>
+    <div class="why-card"><span class="num">03</span><div><h4>Premium Materials</h4><p>Only the best turf, stone, and hardware — built to last decades.</p></div></div>
+    <div class="why-card"><span class="num">04</span><div><h4>Fast &amp; Reliable</h4><p>On-time arrival, on-budget delivery, no excuses.</p></div></div>
+    <div class="why-card"><span class="num">05</span><div><h4>Attention to Detail</h4><p>Crisp edges, perfect joints. The difference is in the millimeters.</p></div></div>
+    <div class="why-card"><span class="num">06</span><div><h4>Affordable Luxury</h4><p>High-end results at honest, real-world prices.</p></div></div>
   </div>
 </section>
 
-<section>
-  <h2 class="section-title">What Our Clients <span>Say</span></h2>
-  <div style="max-width:700px;margin:0 auto;text-align:center;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:0.75rem;padding:2.5rem;">
-    <div style="font-size:1.5rem;color:#22c55e;margin-bottom:0.5rem;">★★★★★</div>
-    <p style="color:#d4d4d8;font-size:1.1rem;font-style:italic;">"Magazine-perfect work and an honest team. They transformed our backyard into something we never thought possible."</p>
-    <p style="color:#71717a;margin-top:1rem;">— Verified Google Review</p>
+<!-- CTA -->
+<div class="cta-section">
+  <h2>Ready to upgrade your <em>outdoor space?</em></h2>
+  <p>Book a complimentary on-site consultation. We'll walk your property, listen to your vision, and send a transparent quote within 48 hours.</p>
+  <div class="cta-actions">
+    <a href="#contact" class="btn-primary">Request Free Estimate →</a>
+    <a href="tel:+17869896196" class="btn-secondary">📞 (786) 989-6196</a>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <p class="section-label">CONTACT</p>
+  <h2 class="section-title">Let's design your <em style="font-family:'Playfair Display',serif;font-style:italic;color:var(--gold);">dream backyard.</em></h2>
+  <p class="section-sub">Reach out anytime — we answer the phone, return every email, and arrive on time.</p>
+  <div class="contact-grid">
+    <div class="contact-card"><span class="icon">📞</span><h4>Call / Text</h4><p>(786) 989-6196</p></div>
+    <div class="contact-card"><span class="icon">✉️</span><h4>Email</h4><p>info@batistaellc.com</p></div>
+    <div class="contact-card"><span class="icon">📍</span><h4>Service Area</h4><p>South Florida &amp; Surrounding</p></div>
+    <div class="contact-card"><span class="icon">🕐</span><h4>Hours</h4><p>Open 24 / 7</p></div>
   </div>
 </section>
 
 <footer>
   <div class="footer-links">
-    <a href="/">Home</a>
-    <a href="/about">About</a>
-    <a href="/services">Services</a>
-    <a href="/gallery">Gallery</a>
-    <a href="/contact">Contact</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact">Contact</a>
   </div>
-  <p>Batista Outdoor — South Florida's Premium Outdoor Living Specialists</p>
-  <p style="margin-top:0.3rem;">(786) 989-0316 | info@batistaellc.com</p>
-  <p style="margin-top:0.5rem;font-size:0.75rem;">© 2026 Batista Outdoor. All rights reserved.</p>
+  <p class="logo-small">BATISTA <em>&amp; E.</em></p>
+  <p>(786) 989-6196 | info@batistaellc.com</p>
+  <p style="margin-top:0.5rem;font-size:0.75rem;">© 2026 Batista &amp; E. LLC. All rights reserved.</p>
 </footer>
+
+<script>
+// Interactive Before/After Slider
+(function() {
+  const slider = document.getElementById('baSlider');
+  const afterImg = document.getElementById('afterImg');
+  const handle = document.getElementById('sliderHandle');
+  const line = document.querySelector('.slider-line');
+  let isDragging = false;
+
+  function updateSlider(x) {
+    const rect = slider.getBoundingClientRect();
+    let pos = (x - rect.left) / rect.width;
+    pos = Math.max(0.05, Math.min(0.95, pos));
+    const pct = (pos * 100) + '%';
+    afterImg.style.clipPath = 'inset(0 ' + (100 - pos * 100) + '% 0 0)';
+    handle.style.left = pct;
+    if (line) line.style.left = pct;
+  }
+
+  slider.addEventListener('mousedown', function(e) { isDragging = true; updateSlider(e.clientX); });
+  document.addEventListener('mousemove', function(e) { if (isDragging) updateSlider(e.clientX); });
+  document.addEventListener('mouseup', function() { isDragging = false; });
+
+  slider.addEventListener('touchstart', function(e) { isDragging = true; updateSlider(e.touches[0].clientX); });
+  slider.addEventListener('touchmove', function(e) { if (isDragging) updateSlider(e.touches[0].clientX); });
+  slider.addEventListener('touchend', function() { isDragging = false; });
+
+  // Init slider at center
+  updateSlider(slider.getBoundingClientRect().left + slider.offsetWidth / 2);
+})();
+</script>
 
 </body>
 </html>
