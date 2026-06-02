@@ -1,208 +1,844 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Batista &amp; E. LLC — Premium Outdoor Living | South Florida</title>
-  <meta name="description" content="Premium artificial grass, paver driveways, modern fencing and outdoor enclosures in South Florida." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/css/style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Batista & E. LLC — Premium Outdoor Living</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green-dark: #0F1A16;
+      --green-deep: #1B3A2D;
+      --green-mid: #2D5A48;
+      --off-white: #F5F0EB;
+      --sand: #C8A96E;
+      --gold: #D4A843;
+      --gold-light: #E8C880;
+      --charcoal: #2A2A2A;
+      --gray: #6B6B6B;
+      --gray-light: #9A9A9A;
+      --white: #FFFFFF;
+      --black: #0A0A0A;
+      --navy: #1A2B3C;
+      --font-heading: 'Playfair Display', serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--black);
+      color: var(--off-white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.3s ease;
+    }
+
+    nav.scrolled {
+      background: rgba(10, 10, 10, 0.92);
+      backdrop-filter: blur(12px);
+      padding: 0.75rem 2rem;
+    }
+
+    .nav-logo {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .nav-logo span { color: var(--gold); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--gray-light);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 400;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+
+    .nav-cta {
+      background: var(--gold);
+      color: var(--black) !important;
+      padding: 0.6rem 1.5rem;
+      border-radius: 4px;
+      font-weight: 600 !important;
+      font-size: 0.85rem !important;
+      transition: all 0.3s !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--gold-light);
+      transform: translateY(-1px);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 5px;
+    }
+
+    .hamburger span {
+      width: 24px;
+      height: 2px;
+      background: var(--off-white);
+      transition: all 0.3s;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--black) 0%, var(--green-deep) 100%);
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=80') center/cover no-repeat;
+      opacity: 0.3;
+      z-index: 0;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.7) 100%);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 800px;
+      padding: 2rem;
+    }
+
+    .hero-tagline {
+      font-family: var(--font-heading);
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-tagline em { color: var(--gold); font-style: normal; }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      color: var(--gray-light);
+      margin-bottom: 2.5rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 0.9rem 2.2rem;
+      border-radius: 4px;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s;
+      cursor: pointer;
+      border: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      color: var(--black);
+    }
+
+    .btn-gold:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--off-white);
+      border: 1px solid var(--gray);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      transform: translateY(-2px);
+    }
+
+    /* Sections */
+    section {
+      padding: 6rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-tag {
+      color: var(--gold);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .section-desc {
+      color: var(--gray-light);
+      max-width: 600px;
+      margin-bottom: 3rem;
+    }
+
+    /* Services */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .service-card {
+      background: var(--green-dark);
+      border: 1px solid rgba(200, 169, 110, 0.1);
+      border-radius: 8px;
+      padding: 2rem;
+      transition: all 0.4s;
+      cursor: pointer;
+    }
+
+    .service-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(212, 168, 67, 0.08);
+    }
+
+    .service-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .service-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .service-card p {
+      color: var(--gray-light);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    /* Before/After Slider */
+    .slider-section {
+      background: var(--green-dark);
+      padding: 6rem 2rem;
+      width: 100%;
+    }
+
+    .slider-section .section-content {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .comparison-container {
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      border-radius: 8px;
+      overflow: hidden;
+      user-select: none;
+      aspect-ratio: 16/9;
+      cursor: ew-resize;
+    }
+
+    .comparison-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      pointer-events: none;
+    }
+
+    .comparison-after { clip-path: inset(0 50% 0 0); }
+
+    .comparison-label {
+      position: absolute;
+      top: 1.5rem;
+      padding: 0.4rem 1rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      border-radius: 3px;
+      pointer-events: none;
+    }
+
+    .label-before {
+      left: 1.5rem;
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .label-after {
+      right: 1.5rem;
+      background: var(--gold);
+      color: var(--black);
+    }
+
+    .slider-handle {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 3px;
+      background: var(--white);
+      transform: translateX(-50%);
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    .slider-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 44px;
+      height: 44px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 11;
+      pointer-events: none;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+    }
+
+    .slider-button svg {
+      width: 20px;
+      height: 20px;
+      fill: var(--black);
+    }
+
+    /* Category Buttons */
+    .category-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      max-width: 400px;
+      margin: 2rem auto 0;
+    }
+
+    .cat-btn {
+      padding: 0.8rem 1.5rem;
+      border-radius: 6px;
+      border: 1px solid var(--gray);
+      background: transparent;
+      color: var(--gray-light);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .cat-btn.active {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--black);
+      font-weight: 600;
+    }
+
+    .cat-btn:hover:not(.active) {
+      border-color: var(--gold);
+      color: var(--off-white);
+    }
+
+    /* Stats */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-family: var(--font-heading);
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 0.3rem;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      color: var(--gray-light);
+    }
+
+    /* About */
+    .about-text {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--gray-light);
+      max-width: 700px;
+    }
+
+    /* Gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 6px;
+      aspect-ratio: 4/3;
+      cursor: pointer;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-item:hover img { transform: scale(1.05); }
+
+    .gallery-item .gallery-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 1rem;
+      background: linear-gradient(transparent, rgba(0,0,0,0.8));
+      color: var(--white);
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    /* Contact */
+    .contact-section {
+      background: var(--green-dark);
+      width: 100%;
+      padding: 6rem 2rem;
+    }
+
+    .contact-section .section-content {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.9rem 1rem;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 4px;
+      color: var(--off-white);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      transition: border-color 0.3s;
+      outline: none;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: var(--gold);
+    }
+
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder {
+      color: var(--gray);
+    }
+
+    .contact-form textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .contact-form .btn-gold {
+      width: 100%;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--black);
+      padding: 3rem 2rem;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .footer-logo {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-logo span { color: var(--gold); }
+
+    .footer-phone {
+      color: var(--gray-light);
+      font-size: 0.9rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .footer-phone a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    .footer-copy {
+      color: var(--gray);
+      font-size: 0.8rem;
+      margin-top: 1.5rem;
+    }
+
+    /* Animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      .hamburger { display: flex; }
+
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background: var(--charcoal);
+        flex-direction: column;
+        justify-content: center;
+        padding: 2rem;
+        transition: right 0.3s ease;
+        gap: 1.5rem;
+      }
+
+      .nav-links.open { right: 0; }
+
+      .form-row { grid-template-columns: 1fr; }
+
+      .stats-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+
+      section { padding: 4rem 1.5rem; }
+
+      .hero-tagline { font-size: 2rem; }
+
+      .gallery-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 
-<nav>
-  <div class="logo">
-    <span>BATISTA <em>&amp; E.</em></span>
-  </div>
-  <div class="nav-links">
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#gallery">Gallery</a>
-    <span class="phone">(786) 989-6196</span>
-    <a href="#contact" class="cta-nav">Free Estimate</a>
-  </div>
-</nav>
+  <!-- Navigation -->
+  <nav id="navbar">
+    <a href="#" class="nav-logo">BATISTA <span>& E.</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="tel:+17869896196" class="nav-cta">Free Estimate</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
 
-<!-- BEFORE & AFTER HERO -->
-<section id="gallery" class="hero-slider-section">
-  <div class="before-after-wrapper">
-    <p class="before-after-section-label">BEFORE &amp; AFTER</p>
-    <h2>Drag to see the <em>transformation.</em></h2>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 class="hero-tagline reveal">Transform Your <em>Outdoor Space</em></h1>
+      <p class="hero-sub reveal">Premium artificial grass, pavers, and outdoor living installations. San Diego's trusted choice for luxury landscapes.</p>
+      <div class="hero-ctas reveal">
+        <a href="#contact" class="btn btn-gold">Get a Free Quote</a>
+        <a href="tel:+17869896196" class="btn btn-outline">(786) 989-6196</a>
+      </div>
+    </div>
+  </section>
 
-    <div class="slider-container" id="baSlider">
-      <div class="before-img">
-        <img src="/images/backyard-before.jpg" alt="Before transformation" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;" />
+  <!-- About / Stats -->
+  <section id="about">
+    <div class="reveal">
+      <p class="section-tag">About Us</p>
+      <h2 class="section-title">Crafting San Diego's Finest Outdoor Living</h2>
+      <p class="about-text">Batista & E. LLC transforms ordinary yards into extraordinary outdoor living spaces. From lush artificial turf to elegant paver patios, we bring premium craftsmanship to every project. No subcontractors, no shortcuts — just quality work that lasts.</p>
+    </div>
+    <div class="stats-grid reveal">
+      <div class="stat">
+        <div class="stat-number">10+</div>
+        <div class="stat-label">Years Experience</div>
       </div>
-      <div class="after-img" id="afterImg">
-        <img src="/images/backyard-after.jpg" alt="After transformation" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;" />
+      <div class="stat">
+        <div class="stat-number">500+</div>
+        <div class="stat-label">Projects Completed</div>
       </div>
-      <div class="slider-line"></div>
+      <div class="stat">
+        <div class="stat-number">100%</div>
+        <div class="stat-label">Satisfaction Guarantee</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <div class="reveal">
+      <p class="section-tag">What We Do</p>
+      <h2 class="section-title">Premium Outdoor Services</h2>
+      <p class="section-desc">Every project is built to last with premium materials and expert craftsmanship.</p>
+    </div>
+    <div class="services-grid reveal">
+      <div class="service-card">
+        <span class="service-icon">🌿</span>
+        <h3>Artificial Grass</h3>
+        <p>Lush, maintenance-free synthetic turf that stays green year-round. Perfect for lawns, play areas, and pet runs.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🏛️</span>
+        <h3>Paver Installation</h3>
+        <p>Driveways, walkways, patios, and pool decks in premium stone and concrete pavers. Custom patterns and colors.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🏡</span>
+        <h3>Backyard Remodeling</h3>
+        <p>Complete outdoor transformations — from concept to completion. Pools, pergolas, fire pits, and outdoor kitchens.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">⛩️</span>
+        <h3>Modern Fencing</h3>
+        <p>Clean, contemporary fencing solutions. Privacy fences, decorative panels, and custom gates in premium materials.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Before/After Slider -->
+  <div class="slider-section">
+    <div class="section-content reveal">
+      <p class="section-tag" style="text-align:center;">Our Work</p>
+      <h2 class="section-title" style="text-align:center;">See the Transformation</h2>
+      <p class="section-desc" style="text-align:center; margin-left:auto; margin-right:auto;">From ordinary yard to extraordinary outdoor living. Drag to compare.</p>
+    </div>
+    <div class="comparison-container reveal" id="comparison">
+      <img class="comparison-img" id="beforeImg" src="https://images.unsplash.com/photo-1576013551627-0cc20b84c2b2?w=1200&q=80" alt="Before" loading="lazy">
+      <img class="comparison-img comparison-after" id="afterImg" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80" alt="After" loading="lazy">
+      <div class="comparison-label label-before">Before</div>
+      <div class="comparison-label label-after">After</div>
       <div class="slider-handle" id="sliderHandle"></div>
-      <span class="label-before">BEFORE</span>
-      <span class="label-after">AFTER</span>
-    </div>
-
-    <div class="category-tags">
-      <span class="category-tag active">Backyard Remodel</span>
-      <span class="category-tag">Paver Driveway</span>
-      <span class="category-tag">Modern Fence</span>
-    </div>
-  </div>
-
-  <div class="gallery-grid">
-    <div class="gallery-item"><img src="/images/pavers.jpg" alt="Paver driveway" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;" /><div style="position:absolute;bottom:0.5rem;left:0.5rem;background:rgba(0,0,0,0.6);padding:0.2rem 0.6rem;border-radius:0.3rem;font-size:0.75rem;">Paver Driveway</div></div>
-    <div class="gallery-item"><img src="/images/fencing.jpg" alt="Modern fencing" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;" /><div style="position:absolute;bottom:0.5rem;left:0.5rem;background:rgba(0,0,0,0.6);padding:0.2rem 0.6rem;border-radius:0.3rem;font-size:0.75rem;">Modern Fence</div></div>
-    <div class="gallery-item"><span class="g-icon">🌿</span>Artificial Grass<span style="color:#52525b;font-size:0.75rem;">[ Add photo ]</span></div>
-    <div class="gallery-item"><span class="g-icon">🏠</span>Outdoor Enclosure<span style="color:#52525b;font-size:0.75rem;">[ Add photo ]</span></div>
-  </div>
-</section>
-
-<!-- ABOUT SECTION -->
-<div class="page" id="about">
-  <div class="about-section">
-    <div class="about-content">
-      <p class="section-label">ABOUT BATISTA &amp; E</p>
-      <h1>Craftsmanship that <em>elevates</em> every square foot.</h1>
-      <p>Batista &amp; E LLC is a South Florida outdoor living company built on a simple idea: do the work right, every time. From the first walkthrough to the final cleanup, we obsess over the details — the joints, the edges, the lighting, the finish — because that's what separates a job from a transformation.</p>
-      <p>We use only premium materials, send only trained crews, and stand behind every install. The result: a backyard you'll actually want to live in.</p>
-      <div class="feature-grid">
-        <div class="feature-item"><span class="icon">🛡️</span><span>Licensed &amp; Insured</span></div>
-        <div class="feature-item"><span class="icon">🏷️</span><span>Free Estimates</span></div>
-        <div class="feature-item"><span class="icon">🏅</span><span>Premium Materials</span></div>
-        <div class="feature-item"><span class="icon">🤝</span><span>Pro Installation</span></div>
+      <div class="slider-button" id="sliderButton">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
       </div>
     </div>
-    <div class="about-visual">
-      <div class="image-container">
-        <img src="/images/about-hero.jpg" alt="Luxury outdoor living space at dusk" style="width:100%;height:100%;object-fit:cover;" />
+    <div class="category-buttons reveal">
+      <button class="cat-btn active" data-category="backyard">Backyard Remodel</button>
+      <button class="cat-btn" data-category="paver">Paver Driveway</button>
+      <button class="cat-btn" data-category="fence">Modern Fence</button>
+    </div>
+  </div>
+
+  <!-- Gallery -->
+  <section id="gallery">
+    <div class="reveal">
+      <p class="section-tag">Portfolio</p>
+      <h2 class="section-title">Recent Projects</h2>
+      <p class="section-desc">A selection of our finest work across San Diego.</p>
+    </div>
+    <div class="gallery-grid reveal">
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=600&q=80" alt="Luxury backyard with pool" loading="lazy">
+        <div class="gallery-label">Backyard Paradise</div>
       </div>
-      <div class="review-overlay">
-        <div class="stars">★★★★★</div>
-        <p>"Magazine-perfect work and an honest team."</p>
-        <div class="attribution">— Verified Google Review</div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80" alt="Modern pool and patio" loading="lazy">
+        <div class="gallery-label">Pool & Patio</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1600573472591-ee6c8e695481?w=600&q=80" alt="Paver patio installation" loading="lazy">
+        <div class="gallery-label">Paver Patio</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=600&q=80" alt="Modern landscape design" loading="lazy">
+        <div class="gallery-label">Modern Landscape</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1600573472556-6c0c4c1e3bfb?w=600&q=80" alt="Artificial turf installation" loading="lazy">
+        <div class="gallery-label">Artificial Turf</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=600&q=80" alt="Outdoor living space" loading="lazy">
+        <div class="gallery-label">Outdoor Living</div>
       </div>
     </div>
-  </div>
-</div>
+  </section>
 
-<!-- STATS -->
-<div class="stats-row">
-  <div class="stat-item"><span class="num">500+</span><span class="label">Projects Completed</span></div>
-  <div class="stat-item"><span class="num">5.0 ★</span><span class="label">Google Rating</span></div>
-  <div class="stat-item"><span class="num">10+</span><span class="label">Years Experience</span></div>
-  <div class="stat-item"><span class="num">100%</span><span class="label">Satisfaction</span></div>
-</div>
-
-<!-- SERVICES -->
-<section id="services">
-  <p class="section-label">WHAT WE DO</p>
-  <h2 class="section-title">Full-Service Outdoor <span class="gold">Living</span></h2>
-  <p class="section-sub">We design, supply, and install every element of your outdoor space. One team, one warranty, zero headaches.</p>
-  <div class="services-grid">
-    <div class="service-card">
-      <span class="icon">🌿</span>
-      <h3>Artificial Grass</h3>
-      <p>Premium synthetic turf for lawns, putting greens, and play areas. Pet-friendly, drainage-ready, and 15-year warranted materials. Zero maintenance, year-round green.</p>
-    </div>
-    <div class="service-card">
-      <span class="icon">🧱</span>
-      <h3>Paver Driveways &amp; Patios</h3>
-      <p>Interlocking pavers for driveways, walkways, patios, and pool decks. Custom patterns, permeable options, and slip-resistant finishes rated for freeze-thaw.</p>
-    </div>
-    <div class="service-card">
-      <span class="icon">🏗️</span>
-      <h3>Modern Fencing</h3>
-      <p>Decorative aluminum, wood, vinyl, and composite fencing. Privacy screens, horizontal wood, custom gates, and automation-ready designs.</p>
-    </div>
-    <div class="service-card">
-      <span class="icon">🏠</span>
-      <h3>Outdoor Enclosures</h3>
-      <p>Screen rooms, covered patios, pergolas, and outdoor kitchens. Extend your living space year-round with custom louvered roofs and cabanas.</p>
+  <!-- Contact -->
+  <div class="contact-section" id="contact">
+    <div class="section-content reveal">
+      <p class="section-tag" style="text-align:center;">Get Started</p>
+      <h2 class="section-title" style="text-align:center;">Request a Free Quote</h2>
+      <p class="section-desc" style="text-align:center; margin-left:auto; margin-right:auto;">Tell us about your project and we'll get back to you within 24 hours.</p>
+      <form class="contact-form" id="contactForm">
+        <div class="form-row">
+          <input type="text" placeholder="Your Name" required>
+          <input type="email" placeholder="Email Address" required>
+        </div>
+        <div class="form-row">
+          <input type="tel" placeholder="Phone Number" required>
+          <input type="text" placeholder="Service Address">
+        </div>
+        <textarea placeholder="Tell us about your project..." required></textarea>
+        <button type="submit" class="btn btn-gold">Send Request</button>
+      </form>
     </div>
   </div>
-</section>
 
-<!-- WHY CHOOSE US -->
-<section>
-  <p class="section-label">WHY CHOOSE US</p>
-  <h2 class="section-title">Six reasons clients <span class="gold">stay</span> with us.</h2>
-  <div class="why-grid">
-    <div class="why-card"><span class="num">01</span><div><h4>Free Estimates</h4><p>No-pressure walkthroughs and transparent pricing — always.</p></div></div>
-    <div class="why-card"><span class="num">02</span><div><h4>Professional Team</h4><p>Trained installers who treat your property like their own.</p></div></div>
-    <div class="why-card"><span class="num">03</span><div><h4>Premium Materials</h4><p>Only the best turf, stone, and hardware — built to last decades.</p></div></div>
-    <div class="why-card"><span class="num">04</span><div><h4>Fast &amp; Reliable</h4><p>On-time arrival, on-budget delivery, no excuses.</p></div></div>
-    <div class="why-card"><span class="num">05</span><div><h4>Attention to Detail</h4><p>Crisp edges, perfect joints. The difference is in the millimeters.</p></div></div>
-    <div class="why-card"><span class="num">06</span><div><h4>Affordable Luxury</h4><p>High-end results at honest, real-world prices.</p></div></div>
-  </div>
-</section>
+  <!-- Footer -->
+  <footer>
+    <div class="footer-logo">BATISTA <span>& E.</span></div>
+    <div class="footer-phone">Call or Text: <a href="tel:+17869896196">(786) 989-6196</a></div>
+    <p style="color:var(--gray-light); font-size:0.85rem; margin-top:0.3rem;">San Diego's Premier Outdoor Living Contractor</p>
+    <div class="footer-copy">&copy; 2026 Batista & E. LLC. All rights reserved.</div>
+  </footer>
 
-<!-- CTA -->
-<div class="cta-section">
-  <h2>Ready to upgrade your <em>outdoor space?</em></h2>
-  <p>Book a complimentary on-site consultation. We'll walk your property, listen to your vision, and send a transparent quote within 48 hours.</p>
-  <div class="cta-actions">
-    <a href="#contact" class="btn-primary">Request Free Estimate →</a>
-    <a href="tel:+17869896196" class="btn-secondary">📞 (786) 989-6196</a>
-  </div>
-</div>
+  <script>
+    // Nav scroll effect
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+    });
 
-<!-- CONTACT -->
-<section class="contact-section" id="contact">
-  <p class="section-label">CONTACT</p>
-  <h2 class="section-title">Let's design your <em style="font-family:'Playfair Display',serif;font-style:italic;color:var(--gold);">dream backyard.</em></h2>
-  <p class="section-sub">Reach out anytime — we answer the phone, return every email, and arrive on time.</p>
-  <div class="contact-grid">
-    <div class="contact-card"><span class="icon">📞</span><h4>Call / Text</h4><p>(786) 989-6196</p></div>
-    <div class="contact-card"><span class="icon">✉️</span><h4>Email</h4><p>info@batistaellc.com</p></div>
-    <div class="contact-card"><span class="icon">📍</span><h4>Service Area</h4><p>South Florida &amp; Surrounding</p></div>
-    <div class="contact-card"><span class="icon">🕐</span><h4>Hours</h4><p>Open 24 / 7</p></div>
-  </div>
-</section>
+    // Mobile menu
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
 
-<footer>
-  <div class="footer-links">
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#contact">Contact</a>
-  </div>
-  <p class="logo-small">BATISTA <em>&amp; E.</em></p>
-  <p>(786) 989-6196 | info@batistaellc.com</p>
-  <p style="margin-top:0.5rem;font-size:0.75rem;">© 2026 Batista &amp; E. LLC. All rights reserved.</p>
-</footer>
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-<script>
-// Interactive Before/After Slider
-(function() {
-  const slider = document.getElementById('baSlider');
-  const afterImg = document.getElementById('afterImg');
-  const handle = document.getElementById('sliderHandle');
-  const line = document.querySelector('.slider-line');
-  let isDragging = false;
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  function updateSlider(x) {
-    const rect = slider.getBoundingClientRect();
-    let pos = (x - rect.left) / rect.width;
-    pos = Math.max(0.05, Math.min(0.95, pos));
-    const pct = (pos * 100) + '%';
-    afterImg.style.clipPath = 'inset(0 ' + (100 - pos * 100) + '% 0 0)';
-    handle.style.left = pct;
-    if (line) line.style.left = pct;
-  }
+    // Before/After Slider
+    const container = document.getElementById('comparison');
+    const afterImg = document.getElementById('afterImg');
+    const handle = document.getElementById('sliderHandle');
+    let isDragging = false;
 
-  slider.addEventListener('mousedown', function(e) { isDragging = true; updateSlider(e.clientX); });
-  document.addEventListener('mousemove', function(e) { if (isDragging) updateSlider(e.clientX); });
-  document.addEventListener('mouseup', function() { isDragging = false; });
+    function updateSlider(x) {
+      const rect = container.getBoundingClientRect();
+      let pos = (x - rect.left) / rect.width;
+      pos = Math.max(0.1, Math.min(0.9, pos));
+      const pct = pos * 100;
+      afterImg.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
+      handle.style.left = `${pct}%`;
+    }
 
-  slider.addEventListener('touchstart', function(e) { isDragging = true; updateSlider(e.touches[0].clientX); });
-  slider.addEventListener('touchmove', function(e) { if (isDragging) updateSlider(e.touches[0].clientX); });
-  slider.addEventListener('touchend', function() { isDragging = false; });
+    container.addEventListener('mousedown', (e) => { isDragging = true; updateSlider(e.clientX); });
+    document.addEventListener('mousemove', (e) => { if (isDragging) updateSlider(e.clientX); });
+    document.addEventListener('mouseup', () => { isDragging = false; });
 
-  // Init slider at center
-  updateSlider(slider.getBoundingClientRect().left + slider.offsetWidth / 2);
-})();
-</script>
+    container.addEventListener('touchstart', (e) => { isDragging = true; updateSlider(e.touches[0].clientX); });
+    document.addEventListener('touchmove', (e) => { if (isDragging) updateSlider(e.touches[0].clientX); });
+    document.addEventListener('touchend', () => { isDragging = false; });
 
+    // Category buttons
+    document.querySelectorAll('.cat-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+  </script>
 </body>
 </html>
